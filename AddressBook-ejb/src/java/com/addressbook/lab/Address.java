@@ -96,7 +96,7 @@ public class Address implements Serializable {
     }
 
     public String getLastname() {
-        return lastname+"kek";
+        return lastname;
     }
 
     public void setLastname(String lastname) {

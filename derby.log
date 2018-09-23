@@ -1,7 +1,7 @@
-Fri Sep 21 13:15:16 EEST 2018 : Сетевой сервер Apache Derby Network Server - 10.8.3.0 - (1405108) запущен и готов принимать соединения на порту 1527 на {3} 
+Sun Sep 23 08:32:02 EEST 2018 : Сетевой сервер Apache Derby Network Server - 10.8.3.0 - (1405108) запущен и готов принимать соединения на порту 1527 на {3} 
 ----------------------------------------------------------------
-Fri Sep 21 13:15:16 EEST 2018:
- Производится загрузка Derby версии The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): экземпляр a816c00e-0165-fba0-5fa7-000049ef525a
+Sun Sep 23 09:02:52 EEST 2018:
+ Производится загрузка Derby версии The Apache Software Foundation - Apache Derby - 10.8.3.0 - (1405108): экземпляр a816c00e-0166-04e9-c7d6-000049ef525a
 в каталоге базы данных C:\Users\gonch\source\java\AddressBook\addressbook  sun.misc.Launcher$AppClassLoader@1d44bcfa 
 
 java.vendor=Oracle Corporation

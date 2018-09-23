@@ -8,6 +8,7 @@ package com.addressbook.lab;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -25,30 +26,17 @@ public class AddressBookSession implements AddressBookSessionRemote {
 
     @Override
     public void deleteEmailAddress(String[] id)
-    {  
-        Query query = null;
-        
-        System.out.println(id.length);
-        
-//        if (id.length > 7)
-//            System.out.println("good");
-//        else
-//            System.out.println("not good");
-        
+    {
         for(int i = 0; i < id.length; i++)
         {
-            System.out.println(id[i]);
-            query = em.createNamedQuery("Address.findById");
-            query.setParameter("id", Integer.parseInt(id[i]));
-            em.remove(query);
-
+            Address same = em.find(Address.class, Integer.parseInt(id[i]));
+            em.remove(same);
         }
     }
     @Override
     public Address[] showAllRecords()
     {
         Query query = null;
-        
         query = em.createNamedQuery("Address.findAll");
         List addresses = query.getResultList();
         Address[] res = new Address[addresses.size()];
@@ -76,7 +64,7 @@ public class AddressBookSession implements AddressBookSessionRemote {
                     }
         else 
         {
-        query = em.createNamedQuery("Address.findByLastname");
+            query = em.createNamedQuery("Address.findByLastname");
             query.setParameter("lastname", lastName);
         }
         
