@@ -39,19 +39,14 @@ public class GroupsSession implements GroupsSessionRemote {
     }
 
     @Override
-    public String findGroupName(String groupId) {
-        Query query = null;
-        Integer a = Integer.parseInt(groupId);
+    public String findGroupName(int groupId) {
+        Query query;
         query = em.createNamedQuery("Groups.findById");
-        query.setParameter("id", a);
+        query.setParameter("id", groupId);
 
         List groups = query.getResultList();
-        if (groups.size() > 0) {
             Groups temp = (Groups) groups.get(0);
             return temp.getName();
-        } else {
-            return null;
-        }
     }
     
     

@@ -16,5 +16,5 @@ public interface GroupsSessionRemote {
 
     public Groups[] showAllGroups();
     public void addNewGroup(String groupName);
-    public String findGroupName(String groupId);
+    public String findGroupName(int groupId);
 }

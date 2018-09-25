@@ -61,7 +61,7 @@ public class Address implements Serializable {
     @NotNull
     @Column(name = "GROUPID")
     private Integer groupid;
-
+    
     public Integer getGroupid() {
         return groupid;
     }
@@ -69,8 +69,6 @@ public class Address implements Serializable {
     public void setGroupid(Integer groupid) {
         this.groupid = groupid;
     }
-
-      
 
     public Address() {
     }

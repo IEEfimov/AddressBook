@@ -16,10 +16,12 @@
         <%!AddressBookSessionRemote ejbRef;%>
         <%!GroupsSessionRemote ejbGroupsRef;%>
         <%!Address[] addresses;%>
-        <%!Integer iteration;%>
+        <%!int iteration;%>
         <%!String[] deletedRecords;%>
         <%
+            
             InitialContext ic = new InitialContext();
+            ejbGroupsRef = (GroupsSessionRemote) ic.lookup("com.addressbook.lab.GroupsSessionRemote");
             ejbRef = (AddressBookSessionRemote) ic.lookup("com.addressbook.lab.AddressBookSessionRemote");
             try {
             deletedRecords =  request.getParameterValues("deletedRecords");
@@ -32,6 +34,7 @@
                     }
             
             addresses = ejbRef.showAllRecords();
+            iteration = 0;
         %>
 
         <h1>All records</h1>
@@ -51,12 +54,14 @@
                  <td>${add.lastname}</td>
                  <td>${add.email}</td>
                  <td>${add.phone}</td>
-                 <td></td>
+                 <td><%=ejbGroupsRef.findGroupName(addresses[iteration++].getGroupid())%></td>
                  <td ><input type="checkbox" value = "${add.id}" name = "deletedRecords"></td>
-                 </tr>
+                </tr>
             </c:forEach>
         </table>
-            <input type="submit" value="Удалить записи">
+            <p><input type="submit" value="Удалить записи"></p>
         </form>
+        
+        <p><a href="index.jsp">Return</a></p>
     </body>
 </html>
